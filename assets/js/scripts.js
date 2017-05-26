@@ -1,4 +1,9 @@
 jQuery(function($) {
+	//olg 2017
+	$("input").dblclick(function(e){
+    e.preventDefault();
+  });
+  //olg2017
     /**
      * COUNTDOWN
      */
@@ -70,6 +75,12 @@ jQuery(function($) {
 
         contact_form.validate({
             submitHandler: function(form) {
+	            
+	            //olg 2017
+	                    alert("Nachricht erfolgreich gesendet");
+           jQuery(".contact_form .submit input").prop('disabled', true).val('…wird gesendet…');
+//olg 2017
+
                 var contact_form_data = 'action=wpmm_send_contact&' + contact_form.serialize();
 
                 $.post(wpmm_vars.ajax_url, contact_form_data, function(response) {
